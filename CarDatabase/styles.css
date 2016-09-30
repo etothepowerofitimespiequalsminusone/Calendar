@@ -1,0 +1,61 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 30, 2016, 8:46:41 PM
+    Author     : Laganovskis
+*/
+body{
+    margin:0;
+    padding:0;
+    background: #ddd;
+}
+.appname{
+    background: white;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+    height: 2em;
+    padding-top:1em;
+    font-weight: bold;
+}
+.menu{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    background-color: white;
+}
+.menu li{
+    /*
+    display: inline-block;
+    padding-right: 0.5em;
+    height: inherit;
+    */
+    display: inline-block;
+    padding: 1em;
+    /*border: 1px solid #777;*/
+    background: white;
+    margin-right: 1em;
+}
+.menu a{
+    color: #5e5e5e;
+}
+.menu li:hover >a, .menu li:hover{
+    background: #c1c1c1;
+    color:black;
+}
+
+
+
+.menu li a{
+    text-decoration: none;
+}
+table{
+    background: #dadada;
+    padding: 0.5em;
+}
+#tablearea{
+    
+}
