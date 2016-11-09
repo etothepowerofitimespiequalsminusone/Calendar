@@ -1,0 +1,125 @@
+body{
+    background: url('../img/index_0000_Background.png') no-repeat center center fixed;
+    -webkit-background-size:cover;
+    background-size:cover;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html,body{
+    height: 100%;
+}
+#container{
+    border: 1px solid red;
+    padding: 1em 0;
+    position: relative;
+    color: #FFF;
+    top:50%;
+    width: 65%;
+    height: 34em;
+    margin: -17em auto;
+    overflow: hidden;
+}
+#no-account{
+    background: rgba(15,26,47,0.7);
+    height: inherit;
+    width: 50%;
+    float: left;
+}
+#have-account{
+    background: rgba(15,26,47,0.7);
+    height: inherit;
+    float: right;
+    width: 50%;
+}
+.text{
+    padding: 4em 8em 4em 4em;
+}
+form{
+    padding-top: 1em;
+}
+div.text h2{
+    font-weight: 100;
+}
+div.text p, div#login-form input,label{
+    line-height: 2;
+}
+
+div.text a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid rgb(73,171,254);
+    padding: 0.5em 1.5em;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    border-radius:20px;
+}
+div.text hr, div#login-form hr{
+    height: 2px;
+    color: rgb(73,171,254);
+    background-color: rgb(73,171,254);
+    border: none;
+    width: 16%;
+    display: inline-block;
+    text-align: left;
+}
+
+/*login form styling*/
+
+#login-form{
+    background-color: white;
+    padding:5em;
+    position: absolute;
+    top:0;
+    left: 45%;
+    right: 1em;
+    height: inherit;
+    overflow: visible;
+}
+
+#login-form h2{
+    color:rgb(62,73,94);
+}
+h2 img, label img, form a{
+    float:right;
+}
+form a{
+    text-decoration: none;
+}
+label{
+    color: rgb(132,149,183);
+}
+
+input{
+    width: 100%;
+    border:none;
+    background-color: transparent;
+    border-bottom:1px solid rgb(203,210,223);
+}
+
+input.form-btn{
+    background: rgb(248,154,53);
+    padding: 0.5em 3em;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    border-radius:20px;
+    width: auto;
+}
+
+
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(156,178,202,0.8);
+    font-family: 'Source Sans Pro Bold', sans-serif;
+    font-weight: bold;
+}
+
+
+/*for success page*/
