@@ -1,9 +1,17 @@
-/**
-* Created by PhpStorm.
-* User: Laganovskis
-* Date: 11/9/2016
-* Time: 10:47 PM
-*/
+<?php
+
+include_once "database_config.php";
+if(isset($_POST['logout']))
+{
+    $user->logout();
+}
+if($user->isloggedin() == false)
+{
+    header("Location: index.php");
+}
+
+$name = $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,16 +25,8 @@
 <form method="post">
     <button type="submit" name="logout">Logout</button>
 </form>
+
+<h2>Add attributes to user</h2>
+
 </body>
 </html>
-<?php
-
-include_once "database_config.php";
-if(isset($_POST['logout']))
-{
-    $user->logout();
-}
-if($user->isloggedin() == false)
-{
-    header("Location: index.php");
-}

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magebit</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
@@ -16,51 +17,83 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <a href="#">sign up</a>
+            <a href="#signup" class="btn-signup">sign up</a>
         </div>
 
     </div>
     <div id="have-account">
+
         <div class="text">
             <h2>Have an account?</h2>
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <a href="#">login</a>
+            <a href="#login" class="btn-login">login</a>
         </div>
     </div>
-    <div id="login-form">
-        <h2>Login<img src="static/img/style_0000s_0003s_0001_logo.png"/></h2>
-        <hr>
-        <form method="GET">
-            <label for="email">Email<img src="static/img/inactive/style_0000s_0001s_0001s_0002_ic_mail.png" alt='mail'></label><br>
-            <input type="email" name="email" id="email" required><br>
-            <label for="password">Password <img src="static/img/inactive/style_0000s_0001s_0001s_0001_ic_lock.png" alt="lock"></img></label><br>
-            <input type="password" name="password" id="password" required><br>
-            <input type="submit" value="Login" class="form-btn" name="login"><a href="#">Forgot?</a>
-        </form>
+    <div id="form-container">
+        <div id="signup-form">
+            <h2>Sign up<img src="static/img/logo.png"/></h2>
+            <hr>
+            <form method="GET">
+                <label for="name" >Name</label>
+                <img class="fullname" src="static/img/inactive/user.png" alt='user'>
+                <img class="activefullname" src="static/img/active/user.png" alt='user'>
+                <input type="text" name="fullname" id="fullname" value="<?php if(isset($fullname)) echo $fullname ?>" required>
+
+                <label for="email">Email</label>
+                <img class="email" src="static/img/inactive/mail.png" alt="mail">
+                <img class="activeemail" src="static/img/active/mail.png" alt="mail">
+                <input type="email" name="email" id="email" value="<?php if(isset($email)) echo $email ?>" required>
+
+                <label for="password">Password</label>
+                <img class="password" src="static/img/inactive/lock.png" alt="lock"/>
+                <img class="activepassword" src="static/img/active/lock.png" alt="lock"/>
+                <input type="password" name="password" id="password" required>
+
+                <input type="submit" value="Sign up" class="form-btn" name="register"><a href="#">Forgot?</a>
+            </form>
+            <?php
+            if(isset($message))
+            {
+            ?>
+                <h3><?php echo $message ?></h3>
+            <?php
+            }
+            ?>
+        </div>
+        <div id="login-form">
+            <h2>Login<img src="static/img/logo.png"/></h2>
+            <hr>
+            <form method="GET">
+                <label for="email">Email</label>
+                    <img class="email" src="static/img/inactive/mail.png" alt='mail'>
+                    <img class="activeemail" src="static/img/active/mail.png" alt='mail'>
+                    <input type="email" name="email" id="email" required>
+                <label for="password">Password </label>
+                    <img class="password" src="static/img/inactive/lock.png" alt="lock"/>
+                    <img class="activepassword" src="static/img/active/lock.png" alt="lock"/>
+                    <input type="password" name="password" id="password" class="input"  required>
+                <input type="submit" value="Login" class="form-btn" name="login"><a href="#">Forgot?</a>
+            </form>
+            <?php
+            if(isset($error))
+            {
+                ?>
+            <h3><?php echo $error ?></h3>
+            <?php
+            }
+            ?>
+        </div>
+
     </div>
-    <!--<div id="signup-form">-->
-    <!--<h2>Sign up<img src="img/style_0000s_0003s_0001_logo.png"/></h2>-->
-    <!--<hr>-->
-    <!--<form>-->
-    <!--<label for="name">Email<img src="img/inactive/style_0000s_0001s_0001s_0002_ic_mail.png" alt='mail'></label><br>-->
-    <!--<input type="text" name="name" id="name" required><br>-->
-    <!--<label for="password">Password <img src="img/style_0000s_0001s_0001s_0001_ic_lock.png" alt="lock"></img></label><br>-->
-    <!--<input type="password" name="password" id="password" required><br>-->
-    <!--<input type="submit" value="Sign up" class="form-btn"><a href="#">Forgot?</a>-->
-    <!--</form>-->
-    <!--</div>-->
+    <footer>
+        <p>all rights reserved <q>magebit</q> 2016.</p>
+    </footer>
 </div>
 
-<footer>
-    <p>all rights reserved <q>magebit</q> 2016.</p>
-</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/script.js"></script>
 </body>
 </html>
-<?php
-/**
- * Created by PhpStorm.
- * User: Laganovskis
- * Date: 11/9/2016
- * Time: 6:43 PM
- */

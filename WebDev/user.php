@@ -16,15 +16,37 @@ class User{
 
     public function register($fullname,$email,$password)
     {
+        $fullname = htmlspecialchars($fullname);
         try{
             $pass = password_hash($password,PASSWORD_DEFAULT);
             $stmt = $this->connection
                 ->prepare("INSERT INTO users(fullname,email,password) VALUES(:fullname,:email,:password)");
             $stmt->bindParam(':fullname',$fullname);
             $stmt->bindParam(':email',$email);
-            $stmt->bindParam(':password',$password);
+            $stmt->bindParam(':password',$pass);
             $stmt->execute();
             return $stmt;
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+//
+//    public function add_attribute($name,$value){
+//
+//        $stmt = $this->connection
+//            ->prepare("INSERT INTO ")
+//
+//    }
+
+
+    public function validate_email($email)
+    {
+        try{
+            $stmt = $this->connection
+                ->prepare("select * from users where email = :email");
+            $stmt->execute([':email'=>$email]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return ($user['email'] == $email) ? false : true;
         }catch (PDOException $e){
             echo $e->getMessage();
         }
@@ -38,9 +60,7 @@ class User{
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if($stmt->rowCount()>0)
         {
-            //for now I am verifying without hash because there is a test user in the database and he's password is not hashed
-            //if(password_verify($password,$user['password']))
-            if($password === $user['password'])
+            if(password_verify($password,$user['password']))
             {
                 //set user session
                 $_SESSION['user_id'] = $user['id'];
@@ -51,6 +71,13 @@ class User{
             //give error message
             return false;
         }
+    }
+    public function getname($user_id){
+        $stmt = $this->connection
+            ->prepare("select fullname from users where id = :user_id");
+        $stmt->execute([':id' => $user_id]);
+        $name = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $name;
     }
     public function isloggedin()
     {
@@ -63,6 +90,8 @@ class User{
         unset($_SESSION['user_id']);
         return true;
     }
+
+
 
 
 }

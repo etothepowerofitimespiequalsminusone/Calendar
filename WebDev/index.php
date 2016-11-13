@@ -23,24 +23,39 @@ if(isset($_GET['login']))
     {
         $email = ($_GET['email']);
         $password = ($_GET['password']);
-        echo "we here";
-        echo "email ". $email . " and "  . $password;
     }
     if($user->login($email,$password))
     {
         header("Location: success.php");
     }
     else{
-        echo "we bad";
+        $error = "Email and/or password not correct";
     }
+}
+if(isset($_GET['register']))
+{
+    if(isset($_GET['fullname']) && isset($_GET['email']) && isset($_GET['password']))
+    {
 
+        $fullname = htmlspecialchars($_GET['fullname']);
+        $email = htmlspecialchars($_GET['email']);
+        $password = htmlspecialchars($_GET['password']);
+        if($user->validate_email($email))
+        {
+            if($user->register($fullname,$email,$password))
+            {
+                $message = "You are registered, please login!";
+            }
+            else{
+                $message = "This email is good";
+            }
+        }
+        else{
+            $message = "This email is already taken";
+        }
+    }
 }
 
 
-
-
-
-
-
-require "view.php";
+require "view_upgraded.php";
 
