@@ -19,10 +19,8 @@
             </p>
             <a href="#signup" class="btn-signup">sign up</a>
         </div>
-
     </div>
     <div id="have-account">
-
         <div class="text">
             <h2>Have an account?</h2>
             <hr>
@@ -84,7 +82,6 @@
             }
             ?>
         </div>
-
     </div>
     <footer>
         <p>all rights reserved <q>magebit</q> 2016.</p>

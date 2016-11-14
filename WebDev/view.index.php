@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magebit</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/style_upgraded.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
 </head>
 <body>
 <div id="container">
@@ -35,7 +35,7 @@
             <div class="form-text">
                 <h2>Sign up<img src="static/img/logo.png"/></h2>
                 <hr>
-                <form method="GET">
+                <form method="POST" accept-charset="utf-8">
                     <label for="fullname" >Name</label>
                     <img class="fullname" src="static/img/inactive/user.png" alt='user'>
                     <img class="activefullname" src="static/img/active/user.png" alt='user'>
@@ -68,7 +68,7 @@
             <div class="form-text">
                 <h2>Login<img src="static/img/logo.png"/></h2>
                 <hr>
-                <form method="GET">
+                <form method="POST">
                     <label for="email">Email</label>
                     <img class="email" src="static/img/inactive/mail.png" alt='mail'>
                     <img class="activeemail" src="static/img/active/mail.png" alt='mail'>

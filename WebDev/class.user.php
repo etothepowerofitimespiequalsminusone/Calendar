@@ -13,10 +13,8 @@ class User{
     {
         $this->connection = $dbconnection;
     }
-
     public function register($fullname,$email,$password)
     {
-        $fullname = htmlspecialchars($fullname);
         try{
             $pass = password_hash($password,PASSWORD_DEFAULT);
             $stmt = $this->connection
@@ -30,15 +28,6 @@ class User{
             echo $e->getMessage();
         }
     }
-//
-//    public function add_attribute($name,$value){
-//
-//        $stmt = $this->connection
-//            ->prepare("INSERT INTO ")
-//
-//    }
-
-
     public function validate_email($email)
     {
         try{
@@ -53,7 +42,7 @@ class User{
     }
     public function login($email,$password)
     {
-        //check the database for entered email and password
+        // get user details from database and verify
         $stmt = $this->connection
             ->prepare("SELECT * FROM users WHERE email=:email or password=:password");
         $stmt->execute(['email'=>$email,'password'=>$password]);
@@ -68,30 +57,26 @@ class User{
             }
         }
         else{
-            //give error message
             return false;
         }
     }
-    public function getname($user_id){
+    public function getName($user_id)
+    {
         $stmt = $this->connection
             ->prepare("select fullname from users where id = :user_id");
-        $stmt->execute([':id' => $user_id]);
+        $stmt->bindParam(":user_id",$user_id);
+        $stmt->execute();
         $name = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $name;
+        return $name['fullname'];
     }
     public function isloggedin()
     {
         return (isset($_SESSION['user_id']));
     }
-    //not necessary
     public function logout()
     {
         session_destroy();
         unset($_SESSION['user_id']);
         return true;
     }
-
-
-
-
 }

@@ -1,0 +1,73 @@
+html,body,address,blockquote,div,
+form,fieldset,caption,
+h1,h2,h3,h4,h5,h6,
+hr,ul,li,ol,ul,
+table,tr,td,th,p,img {
+    margin:0;
+    padding:0;
+}
+body{
+    background: url('../img/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    background-size:cover;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#profilearea{
+    color:white;
+    background-color: rgba(15,26,47,0.5);
+    position: absolute;
+    width: 70%;
+    margin:10% 15%;
+    text-align: center;
+}
+form:not(.logout){
+
+}
+select{
+    padding: 1em;
+}
+input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 1em;
+}
+input:focus{
+    background-color: white;
+    color: black;
+}
+form input:last-of-type{
+    margin-top: 1em;
+    color:white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-color: transparent;
+    background: rgb(248,154,53);
+    padding: 1em 3em;
+    font-size: smaller;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    border-radius:20px;
+    width: auto;
+}
+form input:last-of-type:hover{
+    background-color: rgba(15,26,47,0.7);
+}
+h1, .logout,button{
+    display: inline;
+}
+.logout button{
+    font-weight: bold;
+    background: rgb(248,154,53);
+    color: white;
+    padding: 1em 2em;
+    float: right;
+}
+.logout button:hover{
+    background-color: rgba(15,26,47,0.7);
+    color: white;
+}
+.form{
+    padding: 10% 10% 5% 10%;
+}

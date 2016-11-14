@@ -5,49 +5,45 @@
  * Date: 11/9/2016
  * Time: 6:25 PM
  */
-
-require_once "database_config.php";
-
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//
+require_once "database_config.php";
 
 if($user->isloggedin())
 {
-    header("Location: success.php");
+    header("Location: home.php");
 }
-
-if(isset($_GET['login']))
+if(isset($_POST['login']))
 {
-    if(isset($_GET['email']) && isset($_GET['password']))
+    if(isset($_POST['email']) && isset($_POST['password']))
     {
-        $email = ($_GET['email']);
-        $password = ($_GET['password']);
+        $email = ($_POST['email']);
+        $password = ($_POST['password']);
     }
     if($user->login($email,$password))
     {
-        header("Location: success.php");
+        header("Location: home.php");
     }
     else{
         $error = "Email and/or password not correct";
     }
 }
-if(isset($_GET['register']))
+if(isset($_POST['register']))
 {
-    if(isset($_GET['fullname']) && isset($_GET['email']) && isset($_GET['password']))
+    if(isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['password']))
     {
 
-        $fullname = htmlspecialchars($_GET['fullname']);
-        $email = htmlspecialchars($_GET['email']);
-        $password = htmlspecialchars($_GET['password']);
+        $fullname = $_POST['fullname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
         if($user->validate_email($email))
         {
             if($user->register($fullname,$email,$password))
             {
-                $message = "You are registered, please login!";
+                header("Location: index.php#login");
             }
             else{
-                $message = "This email is good";
+                $message = "Something went wrong!";
             }
         }
         else{
@@ -55,7 +51,5 @@ if(isset($_GET['register']))
         }
     }
 }
-
-
-require "view_upgraded.php";
+require "view.index.php";
 

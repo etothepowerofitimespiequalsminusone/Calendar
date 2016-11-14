@@ -6,9 +6,8 @@ table,tr,td,th,p,img {
     margin:0;
     padding:0;
 }
-
 body{
-    background: url('../img/background.png') no-repeat;
+    background: url('../img/background.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     background-size:cover;
     font-family: 'Source Sans Pro', sans-serif;
@@ -17,43 +16,35 @@ html,body{
     height: 100%;
 }
 #container{
-    padding: 1em 0;
     position: relative;
-    color: #FFF;
     top:50%;
-    width: 56em;
-    height: 28em;
-    margin: -14em auto;
-    /*width: 65%;*/
-    /*height: 50%;*/
-    /*margin: -22% auto;*/
-    overflow: hidden;
-}
-#no-account{
-    background: rgba(15,26,47,0.9);
-    height: inherit;
-    width: 50%;
-    float: left;
-}
-#have-account{
-    background: rgba(15,26,47,0.9);
-    height: inherit;
-    float: right;
-    width: 50%;
-}
-#no-account .text{
-    padding: 4em 8em 4em 4em;
+    width: 66%;
+    height: 30em;
+    margin: -15em auto;
+    padding: 1em 0;
 
 }
-#have-account .text{
-    padding: 4em 4em 4em 8em;
+.have, .nohave{
+    height: 100%;
+    width: 50%;
+    float:left;
 }
-p{
-    padding: 1em 0 2em 0;
-    line-height: 2em;
+.text{
+    padding: 4em;
+    height: 100%;
 }
-form{
-    padding-top: 1em;
+.wrapper{
+    height: 100%;
+    background: rgba(15,26,47,0.9);
+    color: white;
+}
+hr{
+    margin: 1em 0;
+    border: none;
+    border-top: 2px solid rgb(73,171,254);
+    width: 16%;
+    display: inline-block;
+    text-align: left;
 }
 div.text h2{
     font-weight: 100;
@@ -74,66 +65,65 @@ div.text a{
 div.text a:hover{
     background-color: rgb(73,171,254);
 }
-hr{
-    /*color: rgb(73,171,254);*/
-    /*background-color: rgb(73,171,254);*/
-    border: none;
-    border-top: 2px solid rgb(73,171,254);
-    width: 16%;
-    display: inline-block;
-    text-align: left;
+.wrapper:after{
+    content: '';
+    display: block;
+    clear: both;
 }
-
-/*form-container*/
-
 #form-container{
-    background-color: white;
-    padding:5em;
     position: absolute;
-    width: 34%;
     top:0;
+    bottom: 0;
     right:1em;
-    /*right: 45%;*/
-    height: inherit;
-    overflow: visible;
-    /*box-shadow: 1em 0 0.5em rgba(73,171,254,0.5);*/
+    height: 100%;
+    background: white;
+    width: 50%;
 }
-
-/*login form styling*/
-
-#login-form{
+#signup-form{
+    display: none;
+}
+#login-form,#signup-form{
     background-color: white;
-    /*padding:5em;*/
-    /*position: absolute;*/
-    /*width: 36%;*/
-    /*left: 45%;*/
-    height: inherit;
+    position: absolute;
+    height: 100%;
     overflow: visible;
 }
-
+#signup-form h2,#login-form h2,h3{
+    color:rgb(62,73,94);
+}
+.form-text{
+    height: inherit;
+    padding: 5em 4em;
+}
 h2 img,form img, form a{
     float:right;
 }
 form a{
     text-decoration: none;
+    color: rgb(179,188,209);
+}
+p{
+    padding: 0 0 2em 0;
+    line-height: 2em;
 }
 label {
-    color: rgb(132,149,183);
+    color: rgb(179,188,209);
 }
 input{
     width: 100%;
     border:none;
     background-color: transparent;
     border-bottom:1px solid rgb(203,210,223);
+    padding-bottom: 0.8em;
     margin-bottom: 1em;
 }
-
 input.form-btn{
     color:white;
     text-transform: uppercase;
-    font-weight: 200;
+    font-weight: bold;
     background: rgb(248,154,53);
     padding: 1em 3em;
+    font-size: smaller;
     -webkit-border-radius:20px;
     -moz-border-radius:20px;
     border-radius:20px;
@@ -142,161 +132,113 @@ input.form-btn{
 input.form-btn:hover{
     background-color: rgb(248,191,53);
 }
-
-/*signup form */
-
-#signup-form{
-    display:none;
-    background-color: white;
-    /*position: absolute;*/
-    /*width: 36%;*/
-    left:1em;
-    /*right: 45%;*/
-    height: inherit;
-    overflow: visible;
-}
-#signup-form h2,#login-form h2,h3{
-    color:rgb(62,73,94);
-}
-
-/*label:after{*/
-    /*content: "*";*/
-    /*color: #f00;*/
-/*}*/
-
-/*images*/
-/*form input:nth-child(3n+3):focus {*/
-    /*background: red;*/
-/*}*/
-/*label{*/
-    /*position: relative;*/
-/*}*/
-/*input + img{*/
-    /*position: absolute;*/
-    /*top:0;*/
-    /*left:18em;*/
-/*}*/
-/*!*input:focus + img#user{*!*/
-    /*!*!*does not work on firefox*!*!*/
-    /*!*content: url("../img/active/user.png");*!*/
-/*!*}*!*/
-
 img:nth-child(4n+3){
     display: none;
 }
-
-/*footer, .push{*/
-    /*height: 3em;*/
-    /*text-align: center;*/
-    /*text-transform: uppercase;*/
-    /*color: rgba(156,178,202,0.8);*/
-    /*font-family: 'Source Sans Pro Bold', sans-serif;*/
-    /*font-weight: bold;*/
-/*}*/
-
-footer{
-    padding: 2em;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right:0;
+label:after{
+    content: "*";
+    color: #f00;
+}
+footer, .push{
+    height: 3em;
     text-align: center;
     text-transform: uppercase;
     color: rgba(156,178,202,0.8);
     font-family: 'Source Sans Pro Bold', sans-serif;
     font-weight: bold;
 }
-
-
-
- /*Smartphones (portrait and landscape)*/
-@media only screen
-and (max-width : 1200px)
+@media screen
+and (max-width: 530px)
 {
-    footer{
+    #container{
+        left: 0;
+        top:0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        background-color:rgba(15,26,47,0.9);;
+    }
+    .wrapper{
+        background-color: transparent;
+    }
+    .have, .nohave{
+        width: 100%;
+        float: none;
+        display: block;
+    }
+    .text{
+        padding: 1em 4em;
+    }
+    .text p, .text hr{
         display: none;
     }
-}
-@media only screen
-and (max-width : 1080px){
-    html,body{
-        padding: 0;
-        margin: 0;
-    }
-    body{
-        /*height: auto;i*/
-        background: rgb(98,192,219);
-        -webkit-background-size: cover;
-        background-size:cover;
-    }
-
-    #container{
-        margin: 0 1em;
-        width: 90%;
-        height: auto;
-        display: inline-block;
-    }
-    #no-account,#have-account{
-        background: rgba(255,255,255,0.5);
-        position: relative;
-        float: none;
-        width:100%;
-        height: auto;
-        padding: 0;
-    }
-    .text{
-        height: auto;
-    }
-    #have-account .text{
-        padding: 4em;
-
+    .text h2{
+        padding: 1em 0;
     }
     #form-container{
-        position: relative;
+        background-color:transparent;
         width: 100%;
-        height: auto;
-        padding: 1em;
-    }
-    #signup-form, #login-form{
-        width: 100%;
-        height: auto;
-        left:0;
+        top:0;
         right: 0;
+        left:0;
+        position: relative;
+        display: inline-block;
+    }
+    #login-form,#signup-form{
+        background-color: transparent;
+        position: relative;
+    }
+    .form-text{
+        background-color: rgba(255,255,255,0.8);
+        padding: 1em 4em;
+    }
+    input{
+        border: none;
+        border-bottom:1px solid rgb(15,26,47);
+    }
+    label{
+        color: rgb(15,26,47);
+    }
+    .push{
+        height: 0;
+    }
+    footer{
+        position: relative;
+        height: 3em;
+        width: 100%;
+        text-align: center;
+    }
+}
+@media screen
+and (min-width: 530px)
+and (max-width: 785px)
+{
+    #container{
+        left: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        margin-top:0;
+        top:10%;
+    }
+    .wrapper{
+        height: inherit;
+    }
+    .wrapper{
+    }
+    #form-container{
+        height: 100%;
     }
     .text{
-        height: auto;
+        height: 100%;
     }
-
-
+    footer, .push{
+        position: absolute;
+        height: 4em;
+        width: 40%;
+        left:25%;
+        text-align: center;
+    }
 }
-
-/*@media only screen*/
-/*and (min-device-width: 481px)*/
-/*and (max-device-width: 960px){*/
-
-    /*#container{*/
-        /*width:100%;*/
-        /*height: auto;*/
-        /*display: inline-block;*/
-        /*!*display: none;*!*/
-    /*}*/
-    /*#no-account,#have-account{*/
-        /*position: relative;*/
-        /*float: none;*/
-        /*width:100%;*/
-        /*height: auto;*/
-        /*padding: 0;*/
-    /*}*/
-    /*#have-account .text{*/
-        /*padding: 4em;*/
-    /*}*/
-    /*#form-container{*/
-        /*display: none;*/
-    /*}*/
-
-/*}*/
-
-
-
-
-
