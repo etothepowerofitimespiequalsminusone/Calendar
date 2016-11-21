@@ -1,0 +1,27 @@
+body{
+    background-color: lightgrey;
+}
+.day{
+    display: inline-block;
+    padding:1em;
+    width: 6em;
+    height: 4em;
+    border: 1px solid white;
+    text-align: center;
+}
+.day:hover:not(.heading){
+    background-color: grey;
+}
+.container{
+    position: relative;
+}
+form{
+    position: relative;
+    padding: 1em;
+}
+input{
+    padding: 1em 2em;
+}
+input:hover{
+    background-color: grey;
+}
